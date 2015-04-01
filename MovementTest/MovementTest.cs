@@ -9,6 +9,7 @@ using Styx.CommonBot;
 using Styx.CommonBot.Coroutines;
 using Styx.TreeSharp;
 using Styx.WoWInternals.WoWObjects;
+using Buddy.Coroutines;
 
 namespace MovementTest
 {
@@ -26,7 +27,9 @@ namespace MovementTest
 
 		public static async Task<bool> RootLogic()
 		{
-			await CommonCoroutines.SleepForLagDuration();
+			await Helpers.MoveTo(new WoWPoint(5590.963, 4571.339, 136.1169));
+			await Coroutine.
+			Helpers.Log("done");
 			return true;
 		}
 	}
