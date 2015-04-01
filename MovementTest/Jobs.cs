@@ -8,6 +8,15 @@ using System.Threading.Tasks;
 
 namespace MovementTest
 {
+	class SubTask
+	{
+		public SubTask(string name)
+		{
+			Name = name;
+		}
+		public string Name { get; set; }
+	}
+
 	class Jobs
 	{
 		public static List<Job> MyJobs = new List<Job>();
@@ -26,25 +35,21 @@ namespace MovementTest
 
 	class Job
 	{
-		public Job(GarrisonBuildingType building, WoWPoint location, int shipmentCrateEntry, int workOrderNpcEntry, int professionNpcEntry, bool alreadyMoved, bool needToPickupShipments, bool needToStartWorkOrders)
+		public Job(string name, WoWPoint location, int shipmentCrateEntry, int workOrderNpcEntry, int professionNpcEntry, List<SubTask> subTasks)
 		{
-			Building = building;
+			Name = name;
 			Location = location;
 			ShipmentCrateEntry = shipmentCrateEntry;
 			WorkOrderNpcEntry = workOrderNpcEntry;
 			ProfessionNpcEntry = professionNpcEntry;
-			AlreadyMoved = alreadyMoved;
-			NeedToPickupShipments = needToPickupShipments;
-			NeedToStartWorkOrders = needToStartWorkOrders;
+			SubTasks = subTasks;
 		}
 
-		public GarrisonBuildingType Building { get; set; }
+		public string Name { get; set; }
 		public WoWPoint Location { get; set; }
 		public int ShipmentCrateEntry { get; set; }
 		public int WorkOrderNpcEntry { get; set; }
 		public int ProfessionNpcEntry { get; set; }
-		public bool AlreadyMoved { get; set; }
-		public bool NeedToPickupShipments { get; set; }
-		public bool NeedToStartWorkOrders { get; set; }
+		public List<SubTask> SubTasks { get; set; }
 	}
 }
